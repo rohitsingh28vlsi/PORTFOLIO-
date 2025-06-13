@@ -163,7 +163,7 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.1;
         }
@@ -173,6 +173,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            display: block;
         }
 
         .hero p {
@@ -257,6 +258,38 @@
             border: 1px solid rgba(255, 214, 0, 0.1);
         }
 
+        .profile-container {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-picture {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--circuit-gold);
+            box-shadow: 0 0 40px rgba(255, 214, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-title {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: var(--circuit-gold);
+            text-align: center;
+            background: rgba(30, 30, 40, 0.7);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 214, 0, 0.2);
+        }
+
         /* Sections */
         section {
             padding: 8rem 10%;
@@ -293,6 +326,46 @@
             background: linear-gradient(to right, var(--wafer-purple), var(--silicon-blue));
             margin: 20px auto 0;
             border-radius: 2px;
+        }
+
+        /* Excellence section */
+        .excellence {
+            background: rgba(30, 30, 40, 0.7);
+            border-radius: 15px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 214, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .excellence::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--wafer-purple), var(--silicon-blue));
+        }
+
+        .excellence h3 {
+            color: var(--circuit-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .excellence p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--silver-trace);
+            margin-bottom: 1.5rem;
+        }
+
+        .excellence p strong {
+            color: var(--circuit-gold);
         }
 
         /* Card styles with silicon wafer effect */
@@ -507,15 +580,27 @@
             from { transform: translateY(-50%) rotate(0deg); }
             to { transform: translateY(-50%) rotate(360deg); }
         }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
 
         /* Responsive design */
         @media (max-width: 1100px) {
             .hero-image {
                 opacity: 0.2;
             }
-        }
-
-        @media (max-width: 768px) {
+            
+            .profile-container {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin: 2rem auto;
+            }
+            
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -530,7 +615,9 @@
             .hero-btns {
                 justify-content: center;
             }
-            
+        }
+
+        @media (max-width: 768px) {
             nav ul {
                 display: none;
             }
@@ -544,7 +631,12 @@
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
+            }
+            
+            .profile-picture {
+                width: 220px;
+                height: 220px;
             }
         }
     </style>
@@ -561,9 +653,9 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#excellence">Excellence</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -578,11 +670,17 @@
                 <a href="#contact" class="btn btn-primary">
                     <i class="fas fa-paper-plane"></i> Contact Me
                 </a>
-                <a href="#projects" class="btn btn-outline">
-                    <i class="fas fa-code-branch"></i> View Projects
+                <a href="#experience" class="btn btn-outline">
+                    <i class="fas fa-briefcase"></i> View Experience
                 </a>
             </div>
         </div>
+        
+        <div class="profile-container">
+            <img src="headshot.jpg" alt="Rohit Singh" class="profile-picture">
+            <div class="profile-title">Electrical Engineering Specialist</div>
+        </div>
+        
         <div class="hero-image"></div>
     </section>
 
@@ -597,6 +695,80 @@
                 <p>I am an electrical engineer with hands-on experience in CMOS microfabrication, semiconductor process integration, and full-custom VLSI design. Proficient in cleanroom techniques including photolithography, thin-film deposition, and metrology for fabricating and characterizing transistor-level devices.</p>
                 <p>Skilled in Cadence Virtuoso for schematic design, layout, and DRC/LVS verification of analog and digital circuits. Strong foundation in device physics and CMOS process flows, with the ability to bridge fabrication and circuit design.</p>
                 <p>Experienced in reviewing academic literature and collaborating across teams to develop novel semiconductor processes and in-house fabrication tools. Currently seeking challenging opportunities to apply my technical expertise in semiconductor design and microfabrication.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence of Excellence Section -->
+    <section id="excellence">
+        <div class="section-header">
+            <h2>Evidence of Excellence</h2>
+            <p>Demonstrated expertise and achievements in electrical engineering</p>
+        </div>
+        <div class="excellence">
+            <h3>Professional Excellence</h3>
+            <p><strong>As an Electrical Engineer specializing in semiconductor design and microfabrication</strong>, I've demonstrated technical excellence through multiple high-impact projects and roles. I designed and tested voltage overshoot protection circuits for electrophysiology systems at Cytocybernetics, developing MATLAB scripts that enabled root cause analysis of electrical failures.</p>
+            
+            <p>At the University at Buffalo Microfabrication Lab, I improved device yield by <strong>20%</strong> through process optimization. My technical proficiency includes full-custom VLSI design (512-bit SRAM implementation), semiconductor process control (SPC implementation), and analog IC design (LDO regulator).</p>
+            
+            <p>I've successfully bridged theoretical knowledge with practical application across cleanroom fabrication, circuit design, and process integration. My ability to design, test, and optimize complex electrical systems while collaborating effectively with cross-functional teams demonstrates both technical excellence and leadership potential.</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <h2>Work Experience</h2>
+            <p>Professional journey in electrical engineering and semiconductor design</p>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Electrical Engineer Intern</h3>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> May 2024 - June 2025</div>
+                    <div class="company">Cytocybernetics, Buffalo, NY</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Designed and tested electrical systems, including initial voltage overshoot protection circuits for electric dynamic clamps used in electrophysiology systems</li>
+                        <li>Evaluated circuit tolerance and identified failure modes through rigorous testing</li>
+                        <li>Developed MATLAB scripts to analyze and plot data from oscilloscope CSV files</li>
+                        <li>Computed maximum and average values for multiple circuits to enable root cause analysis of electrical failures</li>
+                        <li>Collaborated with cross-functional teams to improve system reliability and propose design enhancements</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Graduate Teaching Assistant</h3>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> Aug 2024 - Dec 2024</div>
+                    <div class="company">University at Buffalo</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Executed test plans and performed process characterization on mask aligners</li>
+                        <li>Improved exposure accuracy and process reliability by 20%</li>
+                        <li>Guided 17 students through cleanroom semiconductor fabrication</li>
+                        <li>Conducted post-process validation to ensure quality standards</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Electrical Engineer</h3>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> Dec 2019 - May 2020</div>
+                    <div class="company">Transmission Company of TS, India</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Operated and maintained GIS equipment at 132/33kV substation</li>
+                        <li>Supported system-level reliability testing and fault isolation</li>
+                        <li>Collaborated on grid interconnection studies</li>
+                        <li>Improved network efficiency through system upgrades</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -649,119 +821,6 @@
                     <div class="skill">USB</div>
                     <div class="skill">USART</div>
                     <div class="skill">UART</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="section-header">
-            <h2>Work Experience</h2>
-            <p>Professional journey in electrical engineering and semiconductor design</p>
-        </div>
-        <div class="card-grid">
-            <!-- Updated Cytocybernetics experience -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>Electrical Engineer Intern</h3>
-                    <div class="date"><i class="fas fa-calendar-alt"></i> May 2024 - June 2025</div>
-                    <div class="company">Cytocybernetics, Buffalo, NY</div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Designed and tested electrical systems, including initial voltage overshoot protection circuits for electric dynamic clamps used in electrophysiology systems</li>
-                        <li>Evaluated circuit tolerance and identified failure modes through rigorous testing</li>
-                        <li>Developed MATLAB scripts to analyze and plot data from oscilloscope CSV files</li>
-                        <li>Computed maximum and average values for multiple circuits to enable root cause analysis of electrical failures</li>
-                        <li>Collaborated with cross-functional teams to improve system reliability and propose design enhancements based on experimental results</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3>Graduate Teaching Assistant</h3>
-                    <div class="date"><i class="fas fa-calendar-alt"></i> Aug 2024 - Dec 2024</div>
-                    <div class="company">University at Buffalo</div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Executed test plans and performed process characterization on mask aligners</li>
-                        <li>Improved exposure accuracy and process reliability by 20%</li>
-                        <li>Guided 17 students through cleanroom semiconductor fabrication</li>
-                        <li>Conducted post-process validation to ensure quality standards</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3>Electrical Engineer</h3>
-                    <div class="date"><i class="fas fa-calendar-alt"></i> Dec 2019 - May 2020</div>
-                    <div class="company">Transmission Company of TS, India</div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Operated and maintained GIS equipment at 132/33kV substation</li>
-                        <li>Supported system-level reliability testing and fault isolation</li>
-                        <li>Collaborated on grid interconnection studies</li>
-                        <li>Improved network efficiency through system upgrades</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="section-header">
-            <h2>Key Projects</h2>
-            <p>Semiconductor design and process optimization initiatives</p>
-        </div>
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-header">
-                    <h3>512-bit SRAM Memory Bank</h3>
-                    <div class="date"><i class="fas fa-calendar-alt"></i> Full-Custom Chip Design</div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Implemented 512-bit full-custom SRAM array with CMOS VLSI techniques</li>
-                        <li>Designed optimized decoder, differential sense amplifier, and R/W circuits</li>
-                        <li>Created schematic and layout with full DRC/LVS compliance</li>
-                        <li>Integrated design into MOSIS pad frame for fabrication readiness</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3>Statistical Process Control Implementation</h3>
-                    <div class="date"><i class="fas fa-calendar-alt"></i> Semiconductor Manufacturing</div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Implemented SPC using control charts and Cpk analysis</li>
-                        <li>Enabled early detection of process drift in fabrication</li>
-                        <li>Optimized temperature, pressure, and cycle time parameters</li>
-                        <li>Improved yield, uniformity, and process efficiency</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <h3>Low Dropout Regulator Design</h3>
-                    <div class="date"><i class="fas fa-calendar-alt"></i> Cadence Virtuoso</div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Designed high-gain (40 dB) low-power operational amplifier</li>
-                        <li>Applied analog IC design principles for custom silicon</li>
-                        <li>Simulated performance across PVT corners using Spectre</li>
-                        <li>Conducted PPAC-driven analysis for optimization</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -823,7 +882,6 @@
         <div class="social-links">
             <a href="https://linkedin.com/in/rohit-singh1098" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="mailto:rohit.eng@outlook.com"><i class="fas fa-envelope"></i></a>
         </div>
         <div class="copyright">
